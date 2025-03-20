@@ -36,7 +36,7 @@ function getSchemaForVersion(version: SupportedVersion) {
   }
 }
 
-router.post("/create", (req: Request, res: Response, next: NextFunction) => {
+router.post("/", (req: Request, res: Response, next: NextFunction) => {
   const version = "7.8.0" as SupportedVersion;
   const schema = getSchemaForVersion(version);
   validate(schema)(req, res, next);

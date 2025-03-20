@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const deviceGroupCreateSchema = z.object({
+export const create1 = z.object({
   description: z
     .string()
     .min(1)
@@ -19,12 +19,10 @@ export const deviceGroupCreateSchema = z.object({
     ),
 });
 
-export const deviceGroupCreateResponseSchema = z.object({
+export const createResponseSchema = z.object({
   status: z.literal("Success"),
   message: z.string().startsWith("/monitorapi/"),
 });
 
-export type DeviceGroupCreateRequest = z.infer<typeof deviceGroupCreateSchema>;
-export type DeviceGroupCreateResponse = z.infer<
-  typeof deviceGroupCreateResponseSchema
->;
+export type create1Request = z.infer<typeof create1>;
+export type createResponse = z.infer<typeof createResponseSchema>;

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { z } from "zod";
-import { deviceGroupCreateSchema } from "./schema";
+import { create1 } from "./schema";
 import { SupportedVersion } from "@src/supported-versions";
 
 const router = Router();
@@ -25,11 +25,11 @@ function validate(schema: z.ZodType) {
 function getSchemaForVersion(version: SupportedVersion) {
   switch (version) {
     case "7.7.0":
-      return deviceGroupCreateSchema;
+      return create1;
     case "7.8.0":
-      return deviceGroupCreateSchema;
+      return create1;
     case "7.9.0":
-      return deviceGroupCreateSchema;
+      return create1;
     default:
       throw new Error("Unsupported version");
   }

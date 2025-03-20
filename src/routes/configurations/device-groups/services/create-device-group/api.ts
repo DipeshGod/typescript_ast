@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { SupportedVersion } from "@src/supported-versions";
 import { z } from "zod";
+import { validateRequestBody } from "../../../../../lib/validate-request-body";
 
 const create1 = z.object({
   description: z
@@ -20,23 +21,6 @@ const create1 = z.object({
       "A unique valid string to define the Name of the device group. Mandatory field."
     ),
 });
-
-function validate(schema: z.ZodType) {
-  return (req: Request, res: Response, next: NextFunction) => {
-    try {
-      schema.parse(req.body);
-      next();
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        return res.status(400).json({
-          error: "Invalid request body",
-          details: error.errors,
-        });
-      }
-      return res.status(400).json({ error: "Invalid request body" });
-    }
-  };
-}
 
 function getSchemaForVersion(version: SupportedVersion) {
   switch (version) {
@@ -58,6 +42,6 @@ export const createDeviceGroup = (
 ) => {
   const version = "7.8.0" as SupportedVersion;
   const schema = getSchemaForVersion(version);
-  validate(schema)(req, res, next);
+  validateRequestBody(schema)(req, res, next);
   res.status(200).json({ data: req.body });
 };

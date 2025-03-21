@@ -1,5 +1,10 @@
 import { NextFunction, Request, Response } from "express";
-import { SupportedVersion } from "@src/supported-versions";
+import {
+  BACKWARD1,
+  BACKWARD2,
+  LATEST,
+  SupportedVersion,
+} from "@src/supported-versions";
 import { z } from "zod";
 import { validateRequestBody } from "@src/lib/validate-request-body";
 
@@ -24,11 +29,11 @@ const create1 = z.object({
 
 function getSchemaForVersion(version: SupportedVersion) {
   switch (version) {
-    case "7.7.0":
+    case BACKWARD2:
       return create1;
-    case "7.8.0":
+    case BACKWARD1:
       return create1;
-    case "7.9.0":
+    case LATEST:
       return create1;
     default:
       throw new Error("Unsupported version");

@@ -33,19 +33,27 @@ const create = z
       ),
   })
   .transform((data) => {
-    // Create a dynamic transformation by removing unwanted fields and adding new fields
+    const transformedData: Record<string, any> = {};
 
-    // Transform `name` into `deviceName`
-    const deviceName = `${data.name} trasnformed`;
+    // Copy all fields first
+    Object.keys(data).forEach((key) => {
+      transformedData[key] = data[key as keyof typeof data];
+    });
 
-    // Construct the transformed object dynamically
-    const transformedData: Partial<typeof data> & {
-      [key: string]: any;
-    } = {
-      deviceName,
-      description: data.description,
-      devices: data.devices,
-    };
+    // Apply each change from the changes.all array
+    for (const change of changes.all) {
+      if (change.type === "rename" && change.field in data) {
+        // Get the original value
+        const value = transformedData[change.field];
+
+        // Set value under new field name
+        transformedData[change.to] = value;
+
+        // Remove the original field
+        delete transformedData[change.field];
+      }
+      // Add cases for other change types here as needed
+    }
 
     return transformedData;
   });

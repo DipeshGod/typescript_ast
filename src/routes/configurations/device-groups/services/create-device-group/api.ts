@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { SupportedVersion } from "@src/supported-versions";
 import { z } from "zod";
-import { validateRequestBody } from "../../../../../lib/validate-request-body";
+import { validateRequestBody } from "@src/lib/validate-request-body";
 
 const create1 = z.object({
   description: z

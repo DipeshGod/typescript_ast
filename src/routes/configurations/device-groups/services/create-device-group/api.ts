@@ -1,14 +1,19 @@
 import { NextFunction, Request, Response } from "express";
-import {
-  BACKWARD1,
-  BACKWARD2,
-  LATEST,
-  SupportedVersion,
-} from "@src/supported-versions";
+import { SupportedVersion } from "@src/supported-versions";
 import { z } from "zod";
 import { validateRequestBody } from "@src/lib/validate-request-body";
 
-const create1 = z
+const changes = {
+  all: [
+    {
+      type: "rename",
+      field: "name",
+      to: "deviceName",
+    },
+  ],
+};
+
+const create = z
   .object({
     description: z
       .string()
@@ -45,28 +50,14 @@ const create1 = z
     return transformedData;
   });
 
-function getSchemaForVersion(version: SupportedVersion) {
-  switch (version) {
-    case BACKWARD2:
-      return create1;
-    case BACKWARD1:
-      return create1;
-    case LATEST:
-      return create1;
-    default:
-      throw new Error("Unsupported version");
-  }
-}
-
 export const createDeviceGroup = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   const version = "7.8.0" as SupportedVersion;
-  const schema = getSchemaForVersion(version);
 
-  const payload = await (await validateRequestBody(schema))(req, res, next);
+  const payload = await (await validateRequestBody(create))(req, res, next);
 
   res.status(200).json({ data: payload });
 };

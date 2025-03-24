@@ -6,9 +6,6 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "node",
-    coverage: {
-      reporter: ["html"],
-    },
     root: "./src",
   },
 });

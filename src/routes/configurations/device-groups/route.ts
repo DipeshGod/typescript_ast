@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createDeviceGroup } from "./services/create-device-group/api";
+import { createDeviceGroup } from "./create-device-group/api";
 
 const router = Router();
 

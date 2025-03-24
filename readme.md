@@ -43,6 +43,6 @@ File: src / configurations / device-groups / create-device-group / api.ts
 
 <img src="https://miro.medium.com/v2/resize:fit:646/1*gMiUPuRGC36nxZHe2zthOg.png" alt="Alt text" width="400" height="300" /> <img src="https://logowik.com/content/uploads/images/vitest-testing-framework1721420841.logowik.com.webp" alt="Alt text" width="400" height="300" />
 
-## Breakdown of api - How we impersonate multiple versions of logpoint from single api
+## D. Breakdown of api - How we impersonate multiple versions of logpoint from single api
 
-## Small but not harmful problem with current approach and eliminating it
+## E. Small but not harmful problem with current approach and eliminating it

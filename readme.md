@@ -1,6 +1,6 @@
 # Director API Docs
 
-## First Steps and Recommented development setup
+## A. First Steps and Recommented development setup
 
 - Clone the repo
 - NodeJs `22.9.0`
@@ -9,7 +9,7 @@
 - `Docker` for containerization and `docker-compose` for development service dependencies
 - VS Code Extensions `Playwright Test For VSCode, Material Icon Theme, JavaScript and TypesScript Nightly, Docker`
 
-## Some useful commands
+## B. Some useful commands
 
 `pnpm install` before you can run the api or any other scripts.
 `pnpm run dev` to start development server.
@@ -17,7 +17,7 @@
 
 Check other scripts yourself in `package.json`
 
-## Architectural decisions
+## C. Architectural decisions
 
 - Each release of director should have defined logpoint supported versions.
 

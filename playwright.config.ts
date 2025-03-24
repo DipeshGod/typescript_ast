@@ -7,4 +7,5 @@ export default defineConfig({
       Accept: "application/vnd.github.v3+json",
     },
   },
+  testDir: "tests",
 });

@@ -46,7 +46,7 @@ const create = (version: string) =>
       return data;
     });
 
-const validate = async (version: string, body: any) => {
+export const validate = async (version: string, body: any) => {
   const schema = create(version);
   const data = await validateRequestBody(schema, body);
   return data;

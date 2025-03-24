@@ -7,7 +7,7 @@
 - `pnpm` as package manager
 - `VSCode` code editor
 - `Docker` for containerization and `docker-compose` for development service dependencies
-- VS Code Extensions `Playwright Test For VSCode, Material Icon Theme, JavaScript and TypesScript Nightly, Docker`
+- VS Code Extensions `Prettier - Code formatter, Playwright Test For VSCode, Material Icon Theme, JavaScript and TypesScript Nightly, Docker`
 
 ## B. Some useful commands
 

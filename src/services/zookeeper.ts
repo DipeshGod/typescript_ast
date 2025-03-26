@@ -1,6 +1,6 @@
 import ZooKeeper from "zookeeper";
 
-const host = "https//10.45.3.141:2181";
+const host = "https://10.45.3.141:2181";
 
 function createClient(timeoutMs = 5000) {
   const config = {

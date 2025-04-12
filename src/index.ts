@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import { deviceGroupRouter } from "./routes/configurations/device-groups/route";
 import { client } from "./logpoint/client";
+import "./services/zookeeper";
 
 dotenv.config();
 

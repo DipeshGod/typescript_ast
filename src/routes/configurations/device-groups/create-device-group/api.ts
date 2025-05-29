@@ -46,14 +46,14 @@ const coherentSchema = (
       return data;
     }
 
-    if (version === "7.8.0") {
+    if (version === BACKWARD1) {
       return {
         ...data,
         devices: data.devices || [],
       };
     }
 
-    if (version === "7.7.0") {
+    if (version === BACKWARD2) {
       return {
         ...data,
         devices: data.devices || [],
@@ -65,7 +65,7 @@ const coherentSchema = (
 };
 
 export const createDeviceGroup = async (req: Request, res: Response) => {
-  const version = "7.8.0" as SupportedVersion;
+  const version = "7.9.0" as SupportedVersion;
 
   try {
     const schema = coherentSchema(createDeviceGroupSchema, version);

@@ -21,8 +21,8 @@ importers:
         specifier: ^4.21.2
         version: 4.21.2
       zod:
-        specifier: ^3.24.2
-        version: 3.24.2
+        specifier: ^3.25.0
+        version: 3.25.36
       zookeeper:
         specifier: ^6.2.3
         version: 6.2.3
@@ -1517,8 +1517,8 @@ packages:
   yauzl@2.10.0:
     resolution: {integrity: sha512-p4a9I6X6nu6IhoGmBqAcbJy1mlC4j27vEPZX9F4L4/vZT3Lyq1VkFHw/V/PUcB9Buo+DG3iHkT0x3Qya58zc3g==}
 
-  zod@3.24.2:
-    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+  zod@3.25.36:
+    resolution: {integrity: sha512-eRFS3i8T0IrpGdL8HQyqFAugGOn7jOjyGgGdtv5NY4Wkhi7lJDk732bNZ609YMIGFbLoaj6J69O1Mura23gfIw==}
 
   zookeeper@6.2.3:
     resolution: {integrity: sha512-pN5VHAtnugf11pZ9wJwGNVZuz3PfYqn0MrwuZEIUPMXteVluEo+Ku6pzwfRfbAIY20R8P2Q9WIb51v++fkCzlA==}
@@ -2938,7 +2938,7 @@ snapshots:
       buffer-crc32: 0.2.13
       fd-slicer: 1.1.0
 
-  zod@3.24.2: {}
+  zod@3.25.36: {}
 
   zookeeper@6.2.3:
     dependencies:

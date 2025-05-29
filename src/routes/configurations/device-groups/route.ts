@@ -1,8 +1,12 @@
 import { Router } from "express";
-import { createDeviceGroup } from "./create-device-group/api";
+import {
+  createDeviceGroup,
+  getCreateDeviceGroupJsonSchema,
+} from "./create-device-group/api";
 
 const router = Router();
 
 router.post("/", createDeviceGroup);
+router.get("/schema", getCreateDeviceGroupJsonSchema);
 
 export { router as deviceGroupRouter };

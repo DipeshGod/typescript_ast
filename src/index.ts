@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import { deviceGroupRouter } from "./routes/configurations/device-groups/route";
 import "./services/zookeeper";
-import { registeredRoutes } from "./registered-routes";
+import registeredRoutes from "../registered-routes.json";
 
 dotenv.config();
 

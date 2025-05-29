@@ -7,6 +7,6 @@ import {
 const router = Router();
 
 router.post("/", createDeviceGroup);
-router.get("/schema", getCreateDeviceGroupJsonSchema);
+router.get("/json-schema", getCreateDeviceGroupJsonSchema);
 
 export { router as deviceGroupRouter };

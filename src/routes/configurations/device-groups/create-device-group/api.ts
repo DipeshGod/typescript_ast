@@ -34,6 +34,8 @@ const createDeviceGroupSchema = z
   })
   .meta({
     description: "API End Point To Create User Group",
+    type: "Configurations",
+    feature: "AlertGroups",
   });
 
 const coherentSchema = (

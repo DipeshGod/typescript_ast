@@ -1,7 +1,0 @@
-{
-  "configurations": {
-    "features": {
-      "deviceGroups": ["/configapi/DeviceGroups/json-schema"]
-    }
-  }
-}

@@ -1,10 +1,5 @@
 import { Request, Response } from "express";
-import {
-  BACKWARD1,
-  BACKWARD2,
-  LATEST,
-  SupportedVersion,
-} from "@src/supported-versions";
+import { supportedVersions } from "@src/supported-versions";
 import { z } from "zod/v4";
 import { validateRequestBody } from "@src/lib/validate-request-body";
 
@@ -21,9 +16,9 @@ const createDeviceGroupSchema = z
         "List of device ID(s) to associate with the device group. Optional field."
       )
       .meta({
-        [LATEST]: true,
-        [BACKWARD1]: false,
-        [BACKWARD2]: false,
+        [supportedVersions.SEVEN_NINE_ZERO]: true,
+        [supportedVersions.SEVEN_EIGHT_ZERO]: false,
+        [supportedVersions.SEVEN_SEVEN_ZERO]: false,
       }),
     name: z
       .string()
@@ -44,18 +39,18 @@ const coherentSchema = (
 ) => {
   return schema.transform((data) => {
     // schema should accomodate latest version first
-    if (version === LATEST) {
+    if (version === supportedVersions.SEVEN_EIGHT_ZERO) {
       return data;
     }
 
-    if (version === BACKWARD1) {
+    if (version === supportedVersions.SEVEN_NINE_ZERO) {
       return {
         ...data,
         devices: data.devices || [],
       };
     }
 
-    if (version === BACKWARD2) {
+    if (version === supportedVersions.SEVEN_SEVEN_ZERO) {
       return {
         ...data,
         devices: data.devices || [],
@@ -67,7 +62,7 @@ const coherentSchema = (
 };
 
 export const createDeviceGroup = async (req: Request, res: Response) => {
-  const version = "7.9.0" as SupportedVersion;
+  const version = "7.9.0";
 
   try {
     const schema = coherentSchema(createDeviceGroupSchema, version);

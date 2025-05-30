@@ -1,7 +1,12 @@
 import { Request, Response } from "express";
-import { supportedVersions } from "@src/supported-versions";
+import { supportedVersions } from "@src/constants/supported-versions";
 import { z } from "zod/v4";
 import { validateRequestBody } from "@src/lib/validate-request-body";
+import {
+  CONFIGURATIONS,
+  CREATE_DEVICE_GROUP,
+  DEVICE_GROUPS,
+} from "@src/constants/director-api";
 
 const createDeviceGroupSchema = z
   .object({
@@ -29,8 +34,9 @@ const createDeviceGroupSchema = z
   })
   .meta({
     description: "API End Point To Create User Group",
-    type: "Configurations",
-    feature: "AlertGroups",
+    type: CONFIGURATIONS,
+    feature: DEVICE_GROUPS,
+    routeAction: CREATE_DEVICE_GROUP,
   });
 
 const coherentSchema = (
